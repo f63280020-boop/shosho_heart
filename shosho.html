@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إلى شروق 💗</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ min-height:100vh;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ padding:20px;
+ font-family:Tahoma,Arial;
+ text-align:center;
+ color:#75445f;
+ background:linear-gradient(135deg,#ffe0ed,#e9ddff,#d9f4ff);
+ overflow-x:hidden;
+}
+
+.container{
+ width:100%;
+ max-width:430px;
+}
+
+h1{
+ font-size:42px;
+ color:#d65b91;
+ text-shadow:0 4px 15px #fff;
+}
+
+.butterfly{
+ font-size:48px;
+ animation:fly 2s infinite alternate;
+}
+
+@keyframes fly{
+ to{transform:translateY(-12px) rotate(12deg)}
+}
+
+.subtitle{
+ font-size:16px;
+ color:#9b6382;
+}
+
+.envelope{
+ margin:55px auto 25px;
+ width:180px;
+ height:115px;
+ background:#f5a8c9;
+ border-radius:12px;
+ position:relative;
+ cursor:pointer;
+ box-shadow:0 12px 25px #bb719b55;
+ animation:float 2s infinite;
+}
+
+@keyframes float{
+ 50%{transform:translateY(-10px)}
+}
+
+.envelope:before{
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ border-left:90px solid transparent;
+ border-right:90px solid transparent;
+ border-top:65px solid #df79aa;
+}
+
+.envelope:after{
+ content:"💗";
+ position:absolute;
+ top:42px;
+ left:73px;
+ font-size:35px;
+}
+
+.hint{
+ color:#b75e8b;
+ animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+ 50%{opacity:.4}
+}
+
+.card{
+ display:none;
+ background:#ffffffb9;
+ border:2px solid white;
+ border-radius:25px;
+ padding:25px 18px;
+ box-shadow:0 12px 35px #b97ba855;
+ animation:appear .8s;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(25px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+.heart{
+ font-size:55px;
+ animation:beat 1s infinite;
+}
+
+@keyframes beat{
+ 50%{transform:scale(1.2)}
+}
+
+h2{color:#d65b91}
+
+.message{
+ line-height:2.2;
+ font-size:16px;
+}
+
+button{
+ border:0;
+ padding:13px 24px;
+ border-radius:30px;
+ background:linear-gradient(120deg,#e878aa,#aa8be5);
+ color:white;
+ font-size:15px;
+ cursor:pointer;
+ margin-top:18px;
+}
+
+.surprise{
+ display:none;
+ margin-top:20px;
+ line-height:2;
+ color:#b34e86;
+ animation:appear .7s;
+}
+
+.footer{
+ margin-top:30px;
+ font-size:12px;
+ color:#a66b8b;
+}
+
+.floating{
+ position:fixed;
+ bottom:-30px;
+ animation:rise 6s linear forwards;
+ pointer-events:none;
+}
+
+@keyframes rise{
+ to{
+  transform:translateY(-110vh) rotate(360deg);
+  opacity:0;
+ }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+ <div class="butterfly">🦋</div>
+
+ <h1>SHOROUK</h1>
+
+ <div class="subtitle">
+  رسالة صغيرة لأجمل صاحبة في الدنيا 💗
+ </div>
+
+ <div id="envelope" class="envelope"
+ onclick="openLetter()"></div>
+
+ <div class="hint" id="hint">
+  افتحي جوابك يا شروق 💌
+ </div>
+
+ <div class="card" id="card">
+
+  <div class="heart">💗</div>
+
+  <h2>إلى شروق حبيبتي 🌸</h2>
+
+  <div class="message">
+   مش كل الناس بنقابلها صدفة،
+   <br>
+   في ناس وجودها بيخلّي الدنيا أحلى.
+   <br><br>
+
+   وإنتِ من الناس اللي أنا محظوظة
+   <br>
+   إنهم في حياتي.
+   <br><br>
+
+   عايزاكي تفضلي دايمًا مبسوطة،
+   <br>
+   وتحققي كل أحلامك،
+   <br>
+   وتفضلي صاحبتي وأختي وحبيبتي.
+   <br><br>
+
+   بحبك يا شروق أوي أوي 💗
+  </div>
+
+  <button onclick="showSurprise()">
+   ولسه في مفاجأة 😂
+  </button>
+
+  <div class="surprise" id="surprise">
+   <div style="font-size:45px">👭💗😂</div>
+
+   على فكرة...
+   <br>
+   إنتِ مش هتعرفي تتخلصي مني بسهولة!
+   <br>
+   هفضل أرخم عليكي وأحبك وأقف جنبك.
+   <br><br>
+
+   ربنا يخليكي ليا يا أحلى شروق 🌷
+  </div>
+
+ </div>
+
+ <div class="footer">
+  FOREVER BEST FRIENDS ♡
+ </div>
+
+</div>
+
+<script>
+function openLetter(){
+ document.getElementById("envelope").style.display="none";
+ document.getElementById("hint").style.display="none";
+ document.getElementById("card").style.display="block";
+}
+
+function showSurprise(){
+ document.getElementById("surprise").style.display="block";
+
+ for(let i=0;i<30;i++){
+  setTimeout(makeHeart,i*100);
+ }
+}
+
+function makeHeart(){
+ let item=document.createElement("div");
+ item.className="floating";
+ item.innerHTML=["💗","🦋","🌸","✨"][Math.floor(Math.random()*4)];
+ item.style.left=Math.random()*100+"vw";
+ item.style.fontSize=(18+Math.random()*20)+"px";
+ document.body.appendChild(item);
+
+ setTimeout(()=>item.remove(),6000);
+}
+
+setInterval(makeHeart,700);
+</script>
+
+</body>
+</html>
